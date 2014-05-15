@@ -5,6 +5,7 @@ package src.model;
  */
 public class Addition implements Operation{
 
+    private Double value;
 
     @Override
     public Double operate(double a, double b) {
@@ -12,8 +13,13 @@ public class Addition implements Operation{
     }
 
     @Override
-    public Operation operate(double a) {
-        return null;
+    public Operation operate(Double[] n) {
+        Double soma = 0.0;
+        for (Double numero : n){
+            soma += numero;
+        }
+        value = soma;
+        return this;
     }
 
     @Override
