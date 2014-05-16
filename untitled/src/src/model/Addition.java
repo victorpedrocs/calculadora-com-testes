@@ -13,17 +13,17 @@ public class Addition implements Operation{
     }
 
     @Override
-    public Operation operate(Double[] n) {
+    public Operation operate(String[] numeros) {
         Double soma = 0.0;
-        for (Double numero : n){
-            soma += numero;
+        for (String numero : numeros){
+            soma += Double.valueOf(numero);
         }
         value = soma;
         return this;
     }
 
     @Override
-    public Operation operate(Operation o, double a) {
-        return null;
+    public String out(){
+        return String.valueOf(this.value);
     }
 }

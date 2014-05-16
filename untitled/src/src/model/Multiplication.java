@@ -5,18 +5,25 @@ package src.model;
  */
 public class Multiplication implements Operation {
 
+    private Double value = 0d;
+
     @Override
     public Double operate(double a, double b) {
         return a*b;
     }
 
     @Override
-    public Operation operate(double a) {
-        return null;
+    public Operation operate(String[] numeros) {
+        Double soma = 1d;
+        for (String numero : numeros){
+            soma *= Double.valueOf(numero);
+        }
+        this.value = soma;
+        return this;
     }
 
     @Override
-    public Operation operate(Operation o, double a) {
-        return null;
+    public String out(){
+        return String.valueOf(this.value);
     }
 }

@@ -12,6 +12,13 @@ public class CalcController {
 
     private Map<String, Operation> operations = new HashMap<String, Operation>();
     public static CalcController instance;
+
+    private static final String add = "+";
+    private static final String sub = "-";
+    private static final String mult = "x";
+    private static final String div = "/";
+
+
     private CalcController(){
         operations.put("+", new Addition());
         operations.put("-", new Subtraction());
@@ -27,17 +34,36 @@ public class CalcController {
     }
 
     public String newOperation(String operation){
-
-        if (operation.contains("+")){
+        // Addition
+        if (operation.contains(add)){
             String[] numeros = operation.split("\\p{Punct}+");
-            if (numeros.length > 1){
-                Double soma = new Double(0);
-                for (String n : numeros){
-                    soma += Double.valueOf(n);
-                }
-                return String.valueOf(soma.shortValue());
-            }
-            return "1";
+            Double[] vetordouble;
+
+            return operations.get(add).operate(numeros).out();
+        }
+
+        // Subtraction
+        if (operation.contains(sub)){
+            String[] numeros = operation.split("-");
+            Double[] vetordouble;
+
+            return operations.get(sub).operate(numeros).out();
+        }
+
+        //Multiplication
+        if (operation.contains(mult)){
+            String[] numeros = operation.split("x");
+            Double[] vetordouble;
+
+            return operations.get(mult).operate(numeros).out();
+        }
+
+        //Division
+        if (operation.contains(div)){
+            String[] numeros = operation.split("/");
+            Double[] vetordouble;
+
+            return operations.get(div).operate(numeros).out();
         }
         
         return null;

@@ -5,6 +5,7 @@ package src.model;
  */
 public class Subtraction implements Operation {
 
+    private Double value = 0d;
 
     @Override
     public Double operate(double a, double b) {
@@ -12,12 +13,17 @@ public class Subtraction implements Operation {
     }
 
     @Override
-    public Operation operate(double a) {
-        return null;
+    public Operation operate(String[] numeros) {
+        Double sub = 0d;
+        for (String numero : numeros){
+            sub = Double.valueOf(numero) - sub;
+        }
+        this.value = sub;
+        return this;
     }
 
     @Override
-    public Operation operate(Operation o, double a) {
-        return null;
+    public String out(){
+        return String.valueOf(this.value);
     }
 }

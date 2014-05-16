@@ -6,7 +6,7 @@ package src.model;
 public interface Operation {
 
     public Double operate(double a, double b);
-    public Operation operate(Double[] n);
-    public Operation operate(Operation o, double a);
+    public Operation operate(String[] n);
+    public String out();
 
 }
