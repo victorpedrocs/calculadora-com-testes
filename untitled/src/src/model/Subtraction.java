@@ -14,10 +14,7 @@ public class Subtraction implements Operation {
 
     @Override
     public Operation operate(String[] numeros) {
-        Double sub = 0d;
-        for (String numero : numeros){
-            sub = Double.valueOf(numero) - sub;
-        }
+        Double sub = Double.valueOf(numeros[0]) - Double.valueOf(numeros[1]);
         this.value = sub;
         return this;
     }

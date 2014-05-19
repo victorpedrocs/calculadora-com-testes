@@ -14,10 +14,7 @@ public class Division implements Operation {
 
     @Override
     public Operation operate(String[] numeros) {
-        Double div = 1d;
-        for(String numero : numeros){
-            div = Double.valueOf(numero)/div;
-        }
+        Double div = Double.valueOf(numeros[0]) / Double.valueOf(numeros[1]);
         this.value = div;
         return this;
     }

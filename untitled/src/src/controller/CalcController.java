@@ -43,7 +43,7 @@ public class CalcController {
         }
 
         // Subtraction
-        if (operation.contains(sub)){
+        else if (operation.contains(sub)){
             String[] numeros = operation.split("-");
             Double[] vetordouble;
 
@@ -51,7 +51,7 @@ public class CalcController {
         }
 
         //Multiplication
-        if (operation.contains(mult)){
+        else if (operation.contains(mult)){
             String[] numeros = operation.split("x");
             Double[] vetordouble;
 
@@ -59,14 +59,16 @@ public class CalcController {
         }
 
         //Division
-        if (operation.contains(div)){
+        else if (operation.contains(div)){
             String[] numeros = operation.split("/");
             Double[] vetordouble;
 
             return operations.get(div).operate(numeros).out();
         }
         
-        return null;
+       else{
+            return operation;
+        }
 
     }
 
